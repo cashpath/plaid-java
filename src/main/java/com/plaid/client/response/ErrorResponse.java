@@ -27,4 +27,9 @@ public class ErrorResponse {
     public void setResolve(String resolve) {
         this.resolve = resolve;
     }
+	@Override
+	public String toString() {
+		return "ErrorResponse [code=" + code + ", message=" + message + ", resolve=" + resolve + "]";
+	}
+    
 }
