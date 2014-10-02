@@ -8,6 +8,8 @@ import com.plaid.client.http.PlaidHttpRequest;
 import com.plaid.client.request.MappingOptions;
 import com.plaid.client.response.CategoriesResponse;
 import com.plaid.client.response.Category;
+import com.plaid.client.response.Institution;
+import com.plaid.client.response.InstitutionsResponse;
 
 public class DefaultPlaidPublicClient implements PlaidPublicClient {
 
@@ -33,7 +35,12 @@ public class DefaultPlaidPublicClient implements PlaidPublicClient {
 
     @Override
     public Object getAllInstitutions() {
-        throw new UnsupportedOperationException("Not implemented yet");
+
+    	PlaidHttpRequest request = new PlaidHttpRequest("/institutions");
+        
+        HttpResponseWrapper<Institution[]> response = httpDelegate.doGet(request, Institution[].class);
+
+        return new InstitutionsResponse(response.getResponseBody());
     }
 
     @Override
