@@ -2,4 +2,8 @@
 /.classpath
 /.project
 /target
-.DS_store
+.idea
+plaid-java.iml
+*.ipr
+*.iws
+
